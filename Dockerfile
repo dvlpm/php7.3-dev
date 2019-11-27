@@ -27,10 +27,7 @@ RUN docker-php-ext-configure gd \
     --with-webp-dir=/usr/lib \
     --with-jpeg-dir=/usr/lib \
     --with-png-dir=/usr/lib \
-    --with-zlib-dir=/usr/lib \
-    --with-xpm-dir=/usr/lib \
-    --with-freetype-dir=/usr/lib \
-    --enable-gd-native-ttf
+    --with-freetype-dir=/usr/lib
 
 RUN docker-php-ext-install pdo_mysql pdo_pgsql pdo_sqlite bcmath zip gd
 
