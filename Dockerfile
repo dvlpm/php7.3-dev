@@ -24,12 +24,12 @@ RUN docker-php-ext-enable xdebug
 
 RUN docker-php-ext-configure zip --with-libzip
 RUN docker-php-ext-configure gd \
-    --with-webp-dir=DIR \
-    --with-jpeg-dir=DIR \
-    --with-png-dir=DIR \
-    --with-zlib-dir=DIR \
-    --with-xpm-dir=DIR \
-    --with-freetype-dir=DIR \
+    --with-webp-dir=/usr/lib \
+    --with-jpeg-dir=/usr/lib \
+    --with-png-dir=/usr/lib \
+    --with-zlib-dir=/usr/lib \
+    --with-xpm-dir=/usr/lib \
+    --with-freetype-dir=/usr/lib \
     --enable-gd-native-ttf
 
 RUN docker-php-ext-install pdo_mysql pdo_pgsql pdo_sqlite bcmath zip gd
