@@ -19,7 +19,7 @@ RUN apt-get update \
     libfreetype6-dev \
     zip
 
-RUN pecl install xdebug-2.8.0beta2
+RUN pecl install xdebug-2.9.1
 RUN docker-php-ext-enable xdebug
 
 RUN docker-php-ext-configure zip --with-libzip
@@ -32,5 +32,8 @@ RUN docker-php-ext-configure gd \
 RUN docker-php-ext-install pdo_mysql pdo_pgsql pdo_sqlite bcmath zip gd
 
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
+
+# allow www-data to write into mapped volume by faking userId
+RUN usermod -u 1000 www-data
 
 WORKDIR /var/www/html
